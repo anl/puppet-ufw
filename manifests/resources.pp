@@ -36,9 +36,9 @@
 # Copyright 2012 Andrew Leonard
 #
 class ufw::resources(
-  $allow = {},
-  $deny = {},
-  $limit = {}
+  $allow = hiera_hash('ufw_allow'),
+  $deny = hiera_hash('ufw_deny'),
+  $limit = hiera_hash('ufw_limit')
   ){
 
   create_resources(ufw::allow, $allow)
